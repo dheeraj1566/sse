@@ -29,7 +29,7 @@ function BrandCard({ b, delay }) {
           margin: "0 auto 14px",
         }}>{b.letter}</div>
         <div style={{ color: "#EDD9BC", fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{b.name}</div>
-        <div style={{ color: "#6B523A", fontSize: 11, letterSpacing: 1 }}>Authorised</div>
+        {/* <div style={{ color: "#6B523A", fontSize: 11, letterSpacing: 1 }}>Authorised</div> */}
       </div>
     </Fade>
   );
