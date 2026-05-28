@@ -1,4 +1,3 @@
-import React from "react";
 import { T } from "./tokens";
 
 export default function Stars({ n }) {

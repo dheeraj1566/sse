@@ -1,4 +1,5 @@
 
+
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,6 +12,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingWA from './components/FloatingWA';
 import { useState, useEffect } from 'react';
+import logo from './assets/logo.png';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -26,13 +28,15 @@ export default function App() {
       background: `linear-gradient(145deg, #1E1008, #2C1A08)`,
     }}>
       <div style={{
-        width: 64, height: 64, borderRadius: 18,
-        background: `linear-gradient(145deg, #E07B2A, #C9921A)`,
+        width: 300, height: 150, borderRadius: 18,
+        background: `linear-gradient(145deg, #E07B2A, #d79608)`,
         display: "flex", alignItems: "center", justifyContent: "center",
-        fontSize: 30, fontWeight: 900, color: "#fff", marginBottom: 22,
-        fontFamily: "Georgia, serif",
+        marginBottom: 22,
         animation: "loadSpin 1.1s ease-in-out infinite alternate",
-      }}>श</div>
+        overflow: 'hidden',
+      }}>
+        <img src={logo} alt="Shree Shyam Logo" style={{ width: 380 }} />
+      </div>
       <div style={{ color: "#5A4030", fontSize: 14, letterSpacing: 0.5 }}>Loading Shree Shyam Enterprises…</div>
       <style>{`@keyframes loadSpin{from{transform:scale(0.9);opacity:0.7}to{transform:scale(1.05);opacity:1}}`}</style>
     </div>
