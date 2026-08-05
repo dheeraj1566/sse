@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../api/axiosInstance';
 import '../App.css'; // Using standard CSS
 
 export default function AdminLogin() {
@@ -7,14 +8,18 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Simplified login for demonstration
-    if (username === 'admin' && password === 'admin') {
-      localStorage.setItem('adminAuth', 'true');
-      navigate('/admin/dashboard');
-    } else {
-      alert('Invalid credentials');
+    try {
+      const res = await api.post('/auth/login', { username, password });
+      if (res.data.token) {
+        localStorage.setItem('adminToken', res.data.token);
+        localStorage.setItem('adminAuth', 'true'); // Keep this for backward compatibility in frontend routing
+        navigate('/admin/dashboard');
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error.response?.data?.message || 'Invalid credentials');
     }
   };
 
