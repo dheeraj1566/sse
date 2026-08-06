@@ -2,9 +2,8 @@ services:
   - type: web
     name: sse-client
     env: static
-    rootDir: Client
-    buildCommand: npm run build
-    staticPublishPath: ./dist
+    buildCommand: cd Client && npm install && npm run build
+    staticPublishPath: Client/dist
     routes:
       - type: rewrite
         source: /*
